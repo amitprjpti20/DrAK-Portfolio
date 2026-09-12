@@ -176,6 +176,25 @@ html.light #home .profile-copy .profile-description{ color:var(--hero-copy-muted
 /* Prevent generic opacity utilities from washing key hero text */
 #home .hero-primary, #home .hero-secondary, #home .profile-copy{ opacity:1 !important; }
 
+/* Infinite certificate scrolling */
+.certificates-track {
+  display: flex;
+  width: max-content;
+  animation: certificates-scroll 35s linear infinite;
+}
+
+.certificates-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes certificates-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
 </style>
 <script type="application/ld+json">
 {
