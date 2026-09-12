@@ -754,6 +754,16 @@ html.light #home .profile-copy .profile-description{ color:var(--hero-copy-muted
       window.openLightbox=(id)=>{const img=document.getElementById(id),lb=document.getElementById('lightbox'),out=document.getElementById('lightbox-img');if(!img||!lb||!out)return;out.src=img.src;lb.classList.remove('hidden');lb.classList.add('flex');document.body.style.overflow='hidden';};
       window.closeLightbox=()=>{const lb=document.getElementById('lightbox');if(!lb)return;lb.classList.add('hidden');lb.classList.remove('flex');document.body.style.overflow='';};
       document.addEventListener('keydown',e=>{if(e.key==='Escape')window.closeLightbox()});
+          // Infinite certificate loop
+      const certificateTrack = document.querySelector('.certificates-track');
+
+      if (certificateTrack) {
+        const certificateCards = Array.from(certificateTrack.children);
+
+        certificateCards.forEach(card => {
+          certificateTrack.appendChild(card.cloneNode(true));
+        });
+      }
     })();
   </script>
 </body>
